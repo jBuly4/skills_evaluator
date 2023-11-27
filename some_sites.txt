@@ -1,0 +1,16 @@
+https://arc.dev/developer-blog/python-developer-job-boards/
+
+
+https://github.com/indeedlabs/indeed-python
+some guides:
+https://medium.com/@alberto_moura/build-a-jobs-database-using-indeeds-api-8f95316be842
+https://realpython.com/build-a-content-aggregator-python/#demo-what-youll-build
+https://towardsdatascience.com/automate-your-job-search-with-python-and-github-actions-1dc818844c0
+!!!
+https://scrapeops.io/python-scrapy-playbook/python-scrapy-indeed-scraper/
+!!!
+https://scrapfly.io/blog/how-to-scrape-indeedcom/
+!!!
+https://scrapeops.io/python-scrapy-playbook/python-scrapy-linkedin-jobs-scraper/
+
+https://scrapeops.io/web-scraping-playbook/
