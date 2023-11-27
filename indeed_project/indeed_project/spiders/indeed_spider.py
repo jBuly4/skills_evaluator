@@ -114,6 +114,7 @@ class IndeedSpider(scrapy.Spider):
         if script_tag is not None:
             json_blob = json.loads(script_tag[0])
             job = json_blob["jobInfoWrapperModel"]["jobInfoModel"]
+            job_salary = json_blob["salaryInfoModel"]
             yield {
                 'keyword': keyword,
                 'location': location,
@@ -125,46 +126,7 @@ class IndeedSpider(scrapy.Spider):
                 'jobDescription': job.get('sanitizedJobDescription').get('content') if job.get(
                     'sanitizedJobDescription'
                     ) is not None else '',
+                'salaryMax': job_salary.get('salaryMax', ''),
+                'salaryMin': job_salary.get('salaryMin', ''),
+                'salaryText': job_salary.get('salaryText', ''),
             }
-
-
-    # def parse(self, response):
-    #     # Extract the JavaScript object from the page
-    #     script_text = response.xpath("//script[contains(., 'results')]/text()").get()
-    #     json_data = re.search(r'"results": (\[.*?\])\s*,\s*"pagination', script_text, re.S)
-    #     install_reactor("twisted.internet.asyncioreactor.AsyncioSelectorReactor")
-    #
-    #     if json_data:
-    #         # Load the data as a JSON object
-    #         job_listings = json.load(json_data.group(1))
-    #
-    #         # Iterate through the job listings
-    #         for job in job_listings:
-    #             salary_info = job.get('extractedSalary')
-    #             if salary_info:
-    #                 salary = f"{salary_info['min']} - {salary_info['max']} {salary_info['type']}"
-    #                 job_description_link = job.get('link')
-    #
-    #                 # Follow the job description link
-    #                 if job_description_link:
-    #                     yield response.follow(job_description_link, self.parse_job_description, meta={'salary': salary})
-    #
-    # def parse_job_description(self, response):
-    #     # Extract job description
-    #     description = response.xpath('//div[@id="jobDescriptionText"]//text()').getall()
-    #     description = ' '.join(description).strip()
-    #
-    #     yield {
-    #         'estimated_salary': response.meta['salary'],
-    #         'description': description
-    #     }
-
-
-# # Run the spider
-# process = CrawlerProcess(settings={
-#     'FEED_FORMAT': 'json',
-#     'FEED_URI': 'jobs.json'
-# })
-#
-# process.crawl(IndeedSpider)
-# process.start()
