@@ -27,7 +27,7 @@ All info in Indeed could be found in script section (hidden json data):
 
 class IndeedSpider(scrapy.Spider):
     name = 'indeed'
-    start_urls = ['https://www.indeed.com/q-python-developer-jobs.html']
+    # start_urls = ['https://www.indeed.com/q-python-developer-jobs.html']
     install_reactor("twisted.internet.asyncioreactor.AsyncioSelectorReactor")
 
     def get_indeed_search_url(self, keyword, location, offset=0):
@@ -70,7 +70,10 @@ class IndeedSpider(scrapy.Spider):
             # paginate through pages
             if offset == 0:
                 meta_data = json_all['metaData']['mosaicProviderJobCardsModel']['tierSummaries']
-                number_of_results = sum(category['jobCount'] for category in meta_data)
+                if len(meta_data) != 0:
+                    number_of_results = sum(category['jobCount'] for category in meta_data)
+                else:
+                    number_of_results = 990
 
                 if number_of_results > 1000:
                     number_of_results = 50
@@ -123,10 +126,12 @@ class IndeedSpider(scrapy.Spider):
                 'company': job.get('companyName'),
                 'jobkey': response.meta['jobKey'],
                 'jobTitle': job.get('jobTitle'),
-                'jobDescription': job.get('sanitizedJobDescription').get('content') if job.get(
-                    'sanitizedJobDescription'
-                    ) is not None else '',
-                'salaryMax': job_salary.get('salaryMax', ''),
-                'salaryMin': job_salary.get('salaryMin', ''),
-                'salaryText': job_salary.get('salaryText', ''),
+                'jobDescription': job.get('sanitizedJobDescription') if job.get('sanitizedJobDescription') is not
+                                                                        None else 'noJobDescription',
+                'salaryMax': job_salary.get('salaryMax', 'noSalaryMaxInfo') if job_salary is not None else
+                'noSalaryInfoAtAll',
+                'salaryMin': job_salary.get('salaryMin', 'noSalaryMinInfo') if job_salary is not None else
+                'noSalaryInfoAtAll',
+                'salaryText': job_salary.get('salaryText', 'noSalaryText') if job_salary is not None else
+                'noSalaryInfoAtAll',
             }
