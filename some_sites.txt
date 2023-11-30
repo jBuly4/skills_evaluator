@@ -14,3 +14,5 @@ https://scrapfly.io/blog/how-to-scrape-indeedcom/
 https://scrapeops.io/python-scrapy-playbook/python-scrapy-linkedin-jobs-scraper/
 
 https://scrapeops.io/web-scraping-playbook/
+
+https://www.scraperapi.com/blog/how-to-scrape-glassdoor/

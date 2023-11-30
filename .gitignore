@@ -159,3 +159,4 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
 /indeed_project/data/
+/parser/clean_csv/cleaned_data/
