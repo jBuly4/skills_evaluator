@@ -28,4 +28,4 @@ PCA plot
 ![Raw clusters for top-10 skills](https://github.com/jBuly4/skills_evaluator/blob/main/parser/predictor/plots/top_10_skill_clusters.png)
 
 ### Useful links and sites I used
-[Links]([some_sites.txt](some_sites.txt))
+[Links](https://github.com/jBuly4/skills_evaluator/blob/main/some_sites.txt)
