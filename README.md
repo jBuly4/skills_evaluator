@@ -26,3 +26,6 @@ PCA plot
 [PCA plot](![PCA_top_10_skill_clusters_with_legend.png](parser%2Fpredictor%2Fplots%2FPCA_top_10_skill_clusters_with_legend.png))
 
 [Raw clusters for top-10 skills](![top_10_skill_clusters.png](parser%2Fpredictor%2Fplots%2Ftop_10_skill_clusters.png))
+
+### Useful links and sites I used
+[Links]([some_sites.txt](some_sites.txt))
