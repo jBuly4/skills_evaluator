@@ -7,7 +7,6 @@ import scrapy
 from urllib.parse import urlencode
 
 from scrapy import Request
-from scrapy.crawler import CrawlerProcess
 from scrapy.utils.reactor import install_reactor
 
 
