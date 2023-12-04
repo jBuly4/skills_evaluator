@@ -25,7 +25,7 @@ scrapy crawl indeed
 PCA plot
 [PCA plot](![PCA_top_10_skill_clusters_with_legend.png](https://github.com/jBuly4/skills_evaluator/blob/main/parser/predictor/plots/PCA_top_10_skill_clusters_with_legend.png)
 
-[Raw clusters for top-10 skills](![top_10_skill_clusters.png](https://github.com/jBuly4/skills_evaluator/blob/main/parser/predictor/plots/top_10_skill_clusters.png))
+[Raw clusters for top-10 skills](![top_10_skill_clusters.png](https://github.com/jBuly4/skills_evaluator/blob/main/parser/predictor/plots/top_10_skill_clusters.png)
 
 ### Useful links and sites I used
 [Links]([some_sites.txt](some_sites.txt))
