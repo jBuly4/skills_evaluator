@@ -2,7 +2,6 @@ import csv
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
@@ -14,6 +13,7 @@ from sklearn.preprocessing import StandardScaler
 
 
 def prepare_data(path_to_skillset):
+    """Get only skills and salaries from prepared skillset."""
     with open(path_to_skillset, 'r') as source:
         reader = csv.reader(source)
         with open('./dataset/skill_dataset.csv', 'w') as dest:
@@ -27,6 +27,7 @@ def prepare_data(path_to_skillset):
 
 
 # prepare_data('../clean_csv/cleaned_data/skill_sets/indeed_skill_set_final.csv')
+# For now it is hardcoded. Will be changed in future
 prepare_data('../clean_csv/cleaned_data/skill_sets/indeed_skill_set.csv')
 
 df = pd.read_csv('./dataset/skill_dataset.csv')

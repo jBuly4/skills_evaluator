@@ -1,6 +1,6 @@
 import json
 import re
-from typing import Iterable
+from typing import Generator
 
 import scrapy
 
@@ -30,6 +30,7 @@ class IndeedSpider(scrapy.Spider):
     install_reactor("twisted.internet.asyncioreactor.AsyncioSelectorReactor")
 
     def get_indeed_search_url(self, keyword, location, offset=0):
+        """Generate search url with appropriate parameters"""
         params = {
             'q': keyword,
             'l': location,  # may be empty
@@ -38,7 +39,8 @@ class IndeedSpider(scrapy.Spider):
         }
         return 'https://www.indeed.com/jobs?' + urlencode(params)
 
-    def start_requests(self) -> Iterable[Request]:
+    def start_requests(self) -> Generator[Request]:
+        """Send search request"""
         keyword_list = ['python']
         location_list = ['']
 
@@ -55,7 +57,8 @@ class IndeedSpider(scrapy.Spider):
                         }
                 )
 
-    def parse_search_results(self, response):
+    def parse_search_results(self, response) -> Generator[Request]:
+        """Parse response from search request. Then iterate through all jobs and request its description."""
         location = response.meta['location']
         keyword = response.meta['keyword']
         offset = response.meta['offset']
@@ -106,7 +109,8 @@ class IndeedSpider(scrapy.Spider):
                             }
                     )
 
-    def parse_job(self, response):
+    def parse_job(self, response) -> Generator[dict]:
+        """Parse job description and return json-like dictionary with job data."""
         location = response.meta['location']
         keyword = response.meta['keyword']
         page = response.meta['page']
