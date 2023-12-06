@@ -41,7 +41,7 @@ PCA plot
 
 ![Raw clusters for top-10 skills](https://github.com/jBuly4/skills_evaluator/blob/main/parser/predictor/plots/top_10_skill_clusters.png)
 
-## How to get chaGPT api-key:
+## How to get ChatGPT api-key:
 1. **Please notice**: you have to pay for using api
 2. In short:
    - Get account
