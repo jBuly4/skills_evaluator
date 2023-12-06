@@ -1,16 +1,29 @@
 # Skills evaluator mini-app
 
 ## Introduction
-Few modules to parse list of job sites, get skills and salary then predict which skills will be the best for the 
+
+### Problematics
+When you find a job you try to get skills required and then stude and practice to get skills you need for the 
+certain job. But which skill set will help you most to get job with the highest salary possible?
+I tried to create simple scripts and research if it is possible.
+
+### Purpose
+The main purpose is to create predictions for salary depending on skills required. I wanted to create ML models which 
+are supposed to use real prepared data from job aggregators.
+
+### Tasks
+- get vacancies data set
+- get skills from job description using ChatGPT
+- train model and predict salary for skills
+
+### What is inside
+Few modules to parse list of job sites then get skills and salary then predict which skills will be the best for the 
 highest salary.
 It has 2 main packets:
 - [indeed_project](https://github.com/jBuly4/skills_evaluator/blob/5b33252bdb45144a128da25f3b7f9d6a9f0208c9/indeed_project/indeed_project) - here you can find code which parses indeed.com
 - [parser](https://github.com/jBuly4/skills_evaluator/blob/5b33252bdb45144a128da25f3b7f9d6a9f0208c9/parser) - this main package for parsing data, cleaning it and run predictor
 
 ## Version 0.0
-**Notification**
-Unfortunately for now I didn't find any correlation between extracted skills and salaries. It seems that I have some 
-mistakes during data parsing and its evaluation.
 
 ## Requirements
 - python 3.10.11
@@ -40,6 +53,11 @@ PCA plot
 ![PCA plot](https://github.com/jBuly4/skills_evaluator/blob/main/parser/predictor/plots/PCA_top_10_skill_clusters_with_legend.png)
 
 ![Raw clusters for top-10 skills](https://github.com/jBuly4/skills_evaluator/blob/main/parser/predictor/plots/top_10_skill_clusters.png)
+
+**Notification**:
+Unfortunately for now I didn't find any correlation between extracted skills and salaries. It seems that I have some 
+mistakes during data parsing and its evaluation with ML models. I guess that I should have to research skillset 
+againts salary not separated skills but on the other side it would be hard to get excactly skillset from my data.
 
 ## How to get ChatGPT api-key:
 1. **Please notice**: you have to pay for using api
